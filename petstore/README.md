@@ -10,7 +10,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 ## Packaging and running the application
 
-If you want to build an _??ber-jar_, execute the following command:
+If you want to build an _uber-jar_, execute the following command:
 
     ./gradlew build -Dquarkus.package.type=uber-jar
 
@@ -179,3 +179,14 @@ Update Existing Pet Type
 Delete Existing Pet
 
     curl --location --request DELETE 'http://localhost:8080/v1/petTypes/delete/{petTypeId}'
+    
+## Run Test Suites
+
+You can execute the test suites for the API using following command
+
+    ./gradlew test
+    
+Use following command to get the Test Report
+
+    start ./build/reports/tests/test/index.html
+
