@@ -119,3 +119,63 @@ Open [http://localhost:16686/](http://localhost:16686/) to see the traces. Mind 
 ## Deploying Application
 
 To deploy the demo app on a docker-compose please visit [./deploy](https://github.com/rasika/petstore/tree/master/deploy)
+
+## Testing the API with CURL
+
+### Pets
+
+Retrieve All Exisisting Pets
+
+    curl --location --request GET 'http://localhost:8080/v1/pets'
+    
+Search Pet By Id
+
+    curl --location --request GET 'http://localhost:8080/v1/pets/{petId}'
+
+Search Pet By Name
+
+    curl --location --request GET 'http://localhost:8080/v1/pets/searchByName/{petName}'
+
+Search Pet By Age
+
+    curl --location --request GET 'http://localhost:8080/v1/pets/searchByAge/{petAge}'
+    
+Search Pet By PetType
+
+    curl --location --request GET 'http://localhost:8080/v1/pets/searchByType/{petType}'
+    
+Add a New Pet
+    
+    curl --location --request POST 'http://localhost:8080/v1/pets/new' --header 'Content-Type: application/json' --data-raw '{"petName": JoJo,"petAge": 2,"petTypeId": 1}'
+
+Update Existing Pet
+    
+    curl --location --request PUT 'http://localhost:8080/v1/pets/edit/{petId}' --header 'Content-Type: application/json' --data-raw '{"petName": "JoJo"}'
+
+Delete Existing Pet
+
+    curl --location --request DELETE 'http://localhost:8080/v1/pets/delete/{petId}'
+    
+
+### Pet Types
+
+Retrieve All Exisisting Pet Types
+
+    curl --location --request GET 'http://localhost:8080/v1/petTypes'
+
+Search Pet By PetType
+
+    curl --location --request GET 'http://localhost:8080/v1/petTypes/searchByType/{petTypeName}'
+    
+Add a New Pet Type
+    
+    curl --location --request POST 'http://localhost:8080/v1/petTypes/new' --header 'Content-Type: application/json' --data-raw '{"petTypeName":"Fish"}'
+
+
+Update Existing Pet Type
+    
+    curl --location --request PUT 'http://localhost:8080/v1/petTypes/edit/{petTypeId}' --header 'Content-Type: application/json' --data-raw '{"petName": "Bird"}'
+
+Delete Existing Pet
+
+    curl --location --request DELETE 'http://localhost:8080/v1/petTypes/delete/{petTypeId}'
